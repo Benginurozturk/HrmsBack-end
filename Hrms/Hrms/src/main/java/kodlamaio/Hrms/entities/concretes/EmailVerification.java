@@ -10,7 +10,7 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = false)
 @Data
 @Entity
-@Table(name = "email_verification")
+@Table(name = "email_verifications")
 
 public class EmailVerification extends User {
 	

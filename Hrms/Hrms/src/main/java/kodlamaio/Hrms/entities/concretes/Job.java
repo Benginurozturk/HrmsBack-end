@@ -1,17 +1,18 @@
 package kodlamaio.Hrms.entities.concretes;
 
+
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "job")
+@Table(name = "jobs")
 @Data
+@EqualsAndHashCode(callSuper=false)
+@PrimaryKeyJoinColumn(name="id")
 public class Job extends User{
-    @Id
-    @GeneratedValue
-    @Column(name = "id")
-    private int id;
+    
 
     @Column(name = "user_id")
     private String userid;
