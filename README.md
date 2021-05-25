@@ -23,4 +23,4 @@ Kabul Kriterleri:
 
 Bu pozisyonlar tekrar edemez. Kullanıcı uyarılır.
 #### ER Diyagramı
-![Veritabanına ait ER Diyagramı](https://github.com/Benginurozturk/HrmsProject/blob/main/PostgreSQL/sql.png)
+//![Veritabanına ait ER Diyagramı](https://github.com/Benginurozturk/HrmsProject/blob/main/PostgreSQL/sql.png)
