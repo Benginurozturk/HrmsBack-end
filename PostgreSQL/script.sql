@@ -9,23 +9,23 @@ CREATE TABLE public.Users
 	CONSTRAINT UK_Users_Email UNIQUE (Email)
 );
 
-CREATE TABLE public.Staffs(
+CREATE TABLE public.Employees(
 	UserId INTEGER NOT NULL,
 	FirstName CHARACTER VARYING(50) NOT NULL,
 	Surname CHARACTER VARYING(50) NOT NULL,
-	CONSTRAINT PK_Staffs PRIMARY KEY(UserId),
-	CONSTRAINT FK_Staffs_Users FOREIGN KEY(UserId) REFERENCES public.Users(Id)
+	CONSTRAINT PK_Employees PRIMARY KEY(UserId),
+	CONSTRAINT FK_Employees_Users FOREIGN KEY(UserId) REFERENCES public.Users(Id)
 );
 
-CREATE TABLE public.Employees(
+CREATE TABLE public.JobSeekers(
 	UserId INTEGER NOT NULL,
 	FirstName CHARACTER VARYING(50) NOT NULL,
 	Surname CHARACTER VARYING(50) NOT NULL,
 	TcNo CHARACTER VARYING(11) NOT NULL,
 	BirthDate DATE NOT NULL,
-	CONSTRAINT PK_Employees PRIMARY KEY(UserId),
-	CONSTRAINT FK_Employees_Users FOREIGN KEY(UserId) REFERENCES public.Users(Id),
-	CONSTRAINT UK_Employees_TcNo UNIQUE(TcNo)
+	CONSTRAINT PK_JobSeekerss PRIMARY KEY(UserId),
+	CONSTRAINT FK_JobSeekers_Users FOREIGN KEY(UserId) REFERENCES public.Users(Id),
+	CONSTRAINT UK_JobSeekers_TcNo UNIQUE(TcNo)
 
 );
 
@@ -60,13 +60,19 @@ CREATE TABLE public.Jobs(
 
 );
 
+CREATE TABLE public.JobPositions(
+	Id INTEGER NOT NULL,
+	Title CHARACTER VARYING(255) NOT NULL,
+	CONSTRAINT PK_JobPositions PRIMARY KEY(Id),
+	CONSTRAINT UK_Jobs_Title UNIQUE(Title)
+
 CREATE TABLE public.EmployerConfirmations(
 	EmployerId INTEGER NOT NULL,
 	IsConfirmated Boolean NOT NULL DEFAULT false,
 	ConfirmatedByStaffId INTEGER NOT NULL,
 	CONSTRAINT PK_EmployerConfirmations PRIMARY KEY(EmployerId),
 	CONSTRAINT FK_EmployerConfirmations_Employers FOREIGN KEY(EmployerId) REFERENCES public.Employers(UserId),
-	CONSTRAINT FK_EmployerConfirmations_Staffs FOREIGN KEY(ConfirmatedByStaffId) REFERENCES public.Staffs(UserId)
+	
 	
 
 );
