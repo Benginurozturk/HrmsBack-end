@@ -40,7 +40,7 @@ public class EmployersController {
 		return this.employerService.delete(id);
 	}
 */
-
+//getall
 	
 	@GetMapping("/getall")
 	public DataResult<List<Employer>> getAll(){
