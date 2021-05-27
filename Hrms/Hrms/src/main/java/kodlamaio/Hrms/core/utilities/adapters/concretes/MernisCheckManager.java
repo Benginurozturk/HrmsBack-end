@@ -10,7 +10,7 @@ public class MernisCheckManager implements MernisCheckService {
 
 	@Override
 	public boolean checkIfRealPerson(User user) {
-		return true;
+		return false;
 	}
 
 }

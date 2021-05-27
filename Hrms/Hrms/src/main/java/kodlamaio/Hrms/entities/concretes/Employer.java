@@ -2,6 +2,7 @@ package kodlamaio.Hrms.entities.concretes;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 import lombok.Data;
@@ -10,6 +11,8 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = false)
 @Data
 @Entity
+
+@PrimaryKeyJoinColumn(name="id")
 @Table(name = "employers")
 public class Employer extends User{
 	
@@ -20,5 +23,5 @@ public class Employer extends User{
 	private String webaddress;
 	
 	@Column(name="phone_no")
-	private boolean phoneno;
+	private String phoneno;
 }
