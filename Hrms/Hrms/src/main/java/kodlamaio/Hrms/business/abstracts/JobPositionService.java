@@ -7,6 +7,7 @@ import kodlamaio.Hrms.core.utilities.results.DataResult;
 import kodlamaio.Hrms.core.utilities.results.Result;
 import kodlamaio.Hrms.entities.concretes.JobPosition;
 
+
 	public interface JobPositionService {
 
 		Result add(JobPosition jobPosition);
@@ -15,4 +16,5 @@ import kodlamaio.Hrms.entities.concretes.JobPosition;
 		
 		DataResult<List<JobPosition>> getAll();
 		DataResult<JobPosition> getJobByTitle(String title);
+		
 	}

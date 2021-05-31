@@ -20,7 +20,7 @@ public class JobSeeker extends User {
 	private String userid;
 	
 	@Column(name="tc_no")
-	private String tcno;
+	private String  tcNo;
 	
 	@Column(name="first_name")
 	private String firstName;
