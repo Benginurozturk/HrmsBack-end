@@ -12,5 +12,7 @@ public interface ResumeImageService {
    Result uploadPhoto(MultipartFile file,int id);
 
    Result delete(int id);
+
+
   
 }

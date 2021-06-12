@@ -12,6 +12,7 @@ import kodlamaio.Hrms.core.utilities.results.Result;
 import kodlamaio.Hrms.core.utilities.results.SuccessResult;
 import kodlamaio.Hrms.dataAccess.abstracts.ResumeImageDao;
 import kodlamaio.Hrms.entities.concretes.ResumeImage;
+import kodlamaio.Hrms.entities.concretes.ResumeMain;
 
 
 @Service
@@ -19,6 +20,7 @@ public class ResumeImageManager implements ResumeImageService{
 
 	private ResumeImageDao resumeImageDao;
 	private UploadService uploadService;
+
 
 
 	 @Autowired
@@ -32,13 +34,20 @@ public class ResumeImageManager implements ResumeImageService{
 
 
 
+	
 	@Override
 	public Result uploadPhoto(MultipartFile file, int id) {
-		ResumeImage resumeImage = resumeImageDao.getByResumeMain_Id(id);
-	        @SuppressWarnings("unchecked")
+		
+		ResumeImage resumeImage= new ResumeImage();
+		ResumeMain resumeMain = new ResumeMain();
+		
+		    resumeImage.setResumeMain(resumeMain);
+		    resumeMain.setId(id);
+			@SuppressWarnings("unchecked")
 			Map<String,String> result =(Map<String, String>) uploadService.upload(file).getData();
-	        String url = result.get("url");
+	        String url = result.get("urlAddress");
 	        resumeImage.setUrlAddress(url);
+	        
 	        resumeImageDao.save(resumeImage);
 	        return new SuccessResult("success");
 	}

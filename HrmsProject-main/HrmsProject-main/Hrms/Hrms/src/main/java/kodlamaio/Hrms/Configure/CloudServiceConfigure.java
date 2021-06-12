@@ -21,9 +21,9 @@ public class CloudServiceConfigure {
     public Cloudinary cloudinaryService(){
         return new Cloudinary(
                 ObjectUtils.asMap(
-                        "cloud_name","dggovhstc", 
-                        "api_key", accessKey,
-                        "api_secret", secretKey
+                        "cloud_name","benginur", 
+                        "api_key", "293214657381484",
+                        "api_secret", "e5YeWXAsjL1f83TKJ6xbt8Z_JKc"
                 )
         );
     }
