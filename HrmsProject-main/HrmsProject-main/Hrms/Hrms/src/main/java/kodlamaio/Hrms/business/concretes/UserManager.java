@@ -47,4 +47,9 @@ public class UserManager implements UserService {
 //      return new SuccessResult("User has been deleted.");
 //	}
 //
+
+	@Override
+	public DataResult<User> getUserByEmail(String email) {
+		return new SuccessDataResult<User>(this.userDao.findUserByEmail(email));
+	}
 }

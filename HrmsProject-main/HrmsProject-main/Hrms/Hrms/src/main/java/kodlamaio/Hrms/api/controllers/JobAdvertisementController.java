@@ -11,10 +11,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import kodlamaio.Hrms.business.abstracts.JobAdversitementService;
+import kodlamaio.Hrms.business.abstracts.JobAdvertisementService;
 import kodlamaio.Hrms.core.utilities.results.DataResult;
 import kodlamaio.Hrms.core.utilities.results.Result;
 import kodlamaio.Hrms.entities.concretes.JobAdvertisement;
+
 
 
 
@@ -22,17 +23,16 @@ import kodlamaio.Hrms.entities.concretes.JobAdvertisement;
 @RequestMapping("/api/jobadvertisement")
 public class JobAdvertisementController {
 
-	private JobAdversitementService jobAdversitementService;
+	private JobAdvertisementService jobAdversitementService;
 
 	@Autowired
-	public JobAdvertisementController(JobAdversitementService jobAdvertisementService) {
+	public JobAdvertisementController(JobAdvertisementService jobAdvertisementService) {
 		super();
 		this.jobAdversitementService = jobAdvertisementService;
 	}
 
 	
 	@PostMapping("/add")
-	
 	public Result add(@RequestBody JobAdvertisement jobAdvertisement){
 		return this.jobAdversitementService.add(jobAdvertisement);
 	}
@@ -57,15 +57,15 @@ public class JobAdvertisementController {
 		return this.jobAdversitementService.getAll();
 	}
 	
-	@PostMapping("/changeOpenToClose")
+	/*@PostMapping("/changeOpenToClose")
 	public Result changeOpenToClose(int id){
 		return this.jobAdversitementService.changeOpenToClose(id);
-	}
+	}*/
 	
-	@GetMapping("/getAllOpenJobAdvertList")
+	/*@GetMapping("/getAllOpenJobAdvertList")
 	public DataResult<List<JobAdvertisement>> getAllOpenJobAdvertisementList(){
 		return this.jobAdversitementService.getAllOpenJobAdvertList();
-	}
+	}*/
 	
 	@GetMapping("/findAllByOrderByPublishedAt")
 	public DataResult<List<JobAdvertisement>> findByIsOpenTrueOrderByDeadline (){

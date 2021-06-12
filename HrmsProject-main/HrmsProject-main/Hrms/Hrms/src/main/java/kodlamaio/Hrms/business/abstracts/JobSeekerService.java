@@ -2,8 +2,10 @@ package kodlamaio.Hrms.business.abstracts;
 import java.util.List;
 
 import kodlamaio.Hrms.core.utilities.results.DataResult;
-//import kodlamaio.hrms.core.utilities.results.Result;
+import kodlamaio.Hrms.core.utilities.results.Result;
+//import kodlamaio.Hrms.core.utilities.results.Result;
 import kodlamaio.Hrms.entities.concretes.JobSeeker;
+
 
 public interface JobSeekerService {
 
@@ -13,4 +15,9 @@ public interface JobSeekerService {
 //	DataResult<Employee> getById(int id);
 	
 	DataResult<List<JobSeeker>> getAll();
+	Result add(JobSeeker jobseeker);
+	DataResult<JobSeeker> getJobSeekerByNationalId(String nationalId);
+
+
+	
 }

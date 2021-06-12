@@ -34,4 +34,18 @@ public class UsersController {
 	public Result add(@RequestBody User user) {
 		return this.userService.add(user);
 	}
+//	@PostMapping("/add")
+//	public Result add(@RequestBody User user){
+//		return this.userService.add(user);
+//	}
+//	
+//	@PostMapping("/update")
+//	public Result update(@RequestBody User user){
+//		return this.userService.update(user);
+//	}
+//	
+//	@PostMapping("/delete")
+//	public Result delete(@RequestParam("id") int id){
+//		return this.userService.delete(id);
+//	}
 }

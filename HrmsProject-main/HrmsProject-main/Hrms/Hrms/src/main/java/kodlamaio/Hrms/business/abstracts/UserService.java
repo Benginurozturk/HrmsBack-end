@@ -10,4 +10,5 @@ public interface UserService {
 	Result add(User user);
 //	Result update(User user);
 //	Result delete(int id);
+	DataResult<User> getUserByEmail(String email);
 }
