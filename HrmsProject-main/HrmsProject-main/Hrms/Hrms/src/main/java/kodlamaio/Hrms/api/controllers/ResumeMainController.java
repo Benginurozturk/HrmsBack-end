@@ -54,6 +54,11 @@ public class ResumeMainController {
 		
 	}
 	
+	@GetMapping("/getall")
+	public DataResult<List<ResumeMain>> getAll() {
+		return this.resumeMainService.getAll();
+	}
+	
 	
 	
 }

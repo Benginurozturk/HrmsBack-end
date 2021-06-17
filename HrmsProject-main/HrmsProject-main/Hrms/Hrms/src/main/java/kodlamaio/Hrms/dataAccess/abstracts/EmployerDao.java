@@ -9,5 +9,5 @@ Employer findByCompanyName(String companyName);
 Employer getById(int id);
 Employer getByCompanyName(String companyName);
 boolean existsByCompanyName(String companyName);
-
+//Employer findByUserId(int id);
 }

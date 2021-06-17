@@ -6,19 +6,27 @@ import org.springframework.stereotype.Service;
 import kodlamaio.Hrms.business.abstracts.AuthService;
 import kodlamaio.Hrms.business.abstracts.EmployerService;
 import kodlamaio.Hrms.business.abstracts.JobSeekerService;
+
 import kodlamaio.Hrms.business.abstracts.UserService;
 import kodlamaio.Hrms.business.abstracts.VerificationCodeService;
 import kodlamaio.Hrms.core.utilities.adapters.ValidationService;
+
 import kodlamaio.Hrms.core.utilities.results.ErrorResult;
 import kodlamaio.Hrms.core.utilities.results.Result;
+
 import kodlamaio.Hrms.core.utilities.results.SuccessResult;
 import kodlamaio.Hrms.core.verification.VerificationService;
+import kodlamaio.Hrms.dataAccess.abstracts.EmployerDao;
+import kodlamaio.Hrms.dataAccess.abstracts.JobSeekerDao;
+import kodlamaio.Hrms.dataAccess.abstracts.UserDao;
 import kodlamaio.Hrms.entities.concretes.Employer;
 import kodlamaio.Hrms.entities.concretes.JobSeeker;
+
 import kodlamaio.Hrms.entities.concretes.VerificationCode;
 
+@SuppressWarnings("rawtypes")
 @Service
-public class AuthManager implements AuthService {
+public class AuthManager<T> implements AuthService {
 
 	private UserService userService;
 	private EmployerService employerService;
@@ -26,12 +34,18 @@ public class AuthManager implements AuthService {
 	private VerificationService verificationService;
 	private ValidationService validationService;
 	private VerificationCodeService verificationCodeService;
+    @SuppressWarnings("unused")
+	private UserDao userDao;
+    @SuppressWarnings("unused")
+	private EmployerDao employerDao;
+    @SuppressWarnings("unused")
+	private JobSeekerDao jobSeekerDao;
 
 	
 	@Autowired
 	public AuthManager(UserService userService, EmployerService employerService, JobSeekerService jobSeekerService,
-			VerificationService verificationService, ValidationService validationService,
-			VerificationCodeService verificationCodeService) {
+			VerificationService verificationService, ValidationService validationService,UserDao userDao,
+			VerificationCodeService verificationCodeService,JobSeekerDao jobSeekerDao,EmployerDao employerDao) {
 		super();
 		this.userService = userService;
 		this.employerService = employerService;
@@ -39,6 +53,9 @@ public class AuthManager implements AuthService {
 		this.verificationService = verificationService;
 		this.validationService = validationService;
 		this.verificationCodeService = verificationCodeService;
+		this.userDao = userDao;
+		this.employerDao = employerDao;
+		this.jobSeekerDao = jobSeekerDao;
 	}
 
 	@Override
@@ -185,7 +202,22 @@ public class AuthManager implements AuthService {
 		System.out.println("Doğrulama Kodu Gönderildi :  " + email );
 	
 	}
+
+	//@Override
+    //public DataResult<T> loginUser(String email, String password) {
+      //  var val = this.userDao.findByEmailAndPassword(email, password).getId();
+        //var employer = this.employerDao.findByUserId(val.getId());
+        //var jobSeeker = this.jobSeekerDao.findByUserId(val.getId());
+        //if (employer != null) {
+          //  return new SuccessDataResult<Employer>(employer, "Giriş Başarılı");
+       // } else if (jobSeeker != null) {
+         //   return new SuccessDataResult<JobSeeker>(jobSeeker, "Giriş Başarılı");
+       // }
+        //else {
+          //  return new ErrorDataResult<User>(null, "Hatalı Giriş!");
+        //}
 	}
+
 	
 	
 	

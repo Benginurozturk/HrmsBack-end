@@ -5,6 +5,7 @@ import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -72,6 +73,8 @@ public class JobAdvertisement {
 	@JoinColumn(name = "job_title_id")
 	private JobTitle jobTitle;
 	
-	
+	@ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "job_type_id", nullable = false)
+    private JobType jobType;
 
 }
